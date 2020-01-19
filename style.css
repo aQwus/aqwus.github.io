@@ -1,0 +1,176 @@
+.container
+{
+ width:40%;
+ margin:auto;
+ padding: 15px;
+ background-color:#87CEFA;
+ overflow:hidden;
+ border: 2px solid black;
+ border-radius:8px;
+ word-wrap:break-word;
+}
+#todo
+{
+  font-size:20px;
+  width:100%
+}
+.todos
+{
+ background-color:linen;
+ width:100%;
+}
+#demo
+{
+  margin-top:0px;
+  list-style-type:none;
+}
+#demo li
+{
+ font-size:25px;
+ height:auto;
+}
+.myClass
+{
+ float:right;
+ font-size:20px;
+}
+* {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        /* Style the header */
+        .header {
+            background-color: #f1f1f1;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Style the top navigation bar */
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            font-size:125%;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        /* Style the topnav links */
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        /* Change color on hover */
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Create three equal columns that floats next to each other */
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 15px;
+        }
+		.columnr{
+			float:right;
+			width:33.33%;
+			padding:15px;
+		}
+		.columnImg{
+			padding: 7px;
+		}
+		#ii:hover{
+			padding: 4px;
+		}
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+        @media screen and (max-width:600px) {
+            .column {
+                width: 100%;
+            }
+        }
+
+body,html{
+    height:100%;
+    margin: 0;
+	background-color:	#FFE4C4;
+}
+
+.parallax{
+    -webkit-filter: blur(1px); /* Safari 6.0 - 9.0 */
+    filter: blur(0px);
+    background-image:url("home.jpg");
+    height:100%;
+    width:100%;
+    background-attachment:fixed;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+.center{
+    position: absolute;
+    font-size:1000%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family:'Ubuntu', sans-serif
+}
+
+#punk{
+	border-radius: 50%;
+	margin-left: 30%;
+	border: 5px solid white;
+}
+#punk:hover{
+	border-radius: 50%;
+	margin-left: 30%;
+	border: 5px solid #FFB6C1;
+}
+#right{
+  float:right;
+}
+#fon{
+  font-size:125%;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+#desogn{
+  margin-top:40%;
+  background-color:white;
+  padding:8%
+}
+#ques{
+  margin-top:30%;
+  background-color:white;
+  padding: 10%
+}
+#wrd{
+  margin-top:10%;float:left
+}
+#feedback{
+  font-family: 'Source Sans Pro', sans-serif;
+}
+#cntct{
+  background-color:white;
+  margin-left:40%;
+  margin-right:40%
+}
