@@ -40,3 +40,5 @@ function foo () {
 
 	document.getElementById("dr").innerText = dr;
 }
+
+document.addEventListener('DOMContentLoaded', foo);
