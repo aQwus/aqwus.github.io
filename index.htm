@@ -106,20 +106,29 @@ Wanna leave something?
 <html>
 <title>Book Appointment</title>
 <head>
-<script type = "text/javascript" src="script.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="appointment-picker.css">
+  <script src="appointment-picker.js"></script>
+  <script type = "text/javascript" src="script.js"></script>
 </head>
 
 <body>
 <h1 id="dr">Dr ABC</h1>
 
 <form 
-  method="POST" 
-  action="https://script.google.com/macros/s/AKfycbzvZvWaXBp_yioVKpgCA-41TWq7rG9-CXV-udCGBYxgJymFn5DqPZc30mVBFsK4CUTKIA/exec">
+  id="test-form"
+  name="submit-to-google-sheet"
+  action="javascript:foo2()">
   
-  <input name="Email" type="email" placeholder="Email" required>
-  <input name="Name" type="text" placeholder="Name" required>
-  <button type="submit">Send</button>
+  <input name="Email" id ="email" type="email" placeholder="Email" required>
+  <input name="Name" id="name" type="text" placeholder="Name" required>
+  <input readonly name="Time" id="time" type="text" value="12:00" required>
+  <button type="submit" id="submit-form">Send</button>
 </form>
+
+<p id="loader" style="display:none">Sending Request</p>
+
+
 
 </body>
 </html>
