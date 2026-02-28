@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Lokesh Raj | Product Manager + Builder</title>
+    <meta name="description"
+        content="Portfolio of Lokesh Raj — AI-first Product Manager who codes. Building SaaS products and AI workflows across fintech, billing, and growth." />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2d8a8a",
+                        "primary-light": "#e6f4f4",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.85);
+        }
+
+        .card-expand-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .card-expand-content.open {
+            max-height: 600px;
+            opacity: 1;
+        }
+
+        .expand-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .expand-icon.rotated {
+            transform: rotate(180deg);
+        }
+
+        .filter-chip {
+            transition: all 0.2s ease;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .filter-chip:hover {
+            border-color: #2d8a8a;
+            color: #2d8a8a;
+        }
+
+        .filter-chip.active {
+            background: #2d8a8a;
+            color: white;
+            border-color: #2d8a8a;
+        }
+
+        .filter-chip.active:hover {
+            background: #247272;
+            color: white;
+        }
+
+        .filter-chip .chip-close {
+            display: none;
+            margin-left: 4px;
+            font-size: 14px;
+            line-height: 1;
+        }
+
+        .filter-chip.active .chip-close {
+            display: inline-flex;
+        }
+
+        .project-card {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .project-card.hidden-card {
+            display: none;
+        }
+
+        /* Exploration image preview */
+        .explore-img-wrap {
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+
+        }
+
+        .explore-img-wrap img {
+
+            transition: transform 0.5s ease;
+        }
+
+        .explore-img-wrap:hover img {
+            transform: scale(1.05);
+        }
+
+        .explore-img-expand {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border-radius: 8px;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        /* Image modal */
+        .img-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .img-modal-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .img-modal-overlay img {
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 12px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .img-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            color: white;
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .img-modal-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Subtle entrance animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .animate-in:nth-child(2) {
+            animation-delay: 0.08s;
+        }
+
+        .animate-in:nth-child(3) {
+            animation-delay: 0.16s;
+        }
+
+        .animate-in:nth-child(4) {
+            animation-delay: 0.24s;
+        }
+
+        .animate-in:nth-child(5) {
+            animation-delay: 0.32s;
+        }
+
+        .animate-in:nth-child(6) {
+            animation-delay: 0.40s;
+        }
+
+        .animate-in:nth-child(7) {
+            animation-delay: 0.48s;
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .mobile-menu.open {
+            max-height: 200px;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-slate-900 font-display">
+
+    <!-- Sticky Navbar -->
+    <header class="sticky top-0 z-50 glass-nav border-b border-slate-200/60">
+        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="font-bold text-lg tracking-tight text-slate-900">Lokesh Raj</span>
+            </div>
+            <nav class="hidden md:flex items-center gap-8">
+                <a class="text-sm font-medium text-slate-600 hover:text-primary transition-colors"
+                    href="#about">About</a>
+                <a class="text-sm font-medium text-slate-600 hover:text-primary transition-colors" href="#work">Work</a>
+                <a class="text-sm font-medium text-slate-600 hover:text-primary transition-colors"
+                    href="#stack">Stack</a>
+                <a class="text-sm font-medium text-slate-600 hover:text-primary transition-colors"
+                    href="#contact">Contact</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <a class="hidden sm:flex h-9 px-4 items-center justify-center rounded-lg bg-slate-100 text-slate-900 text-sm font-bold hover:bg-slate-200 transition-colors"
+                    href="https://www.linkedin.com/in/rajlokesh/" target="_blank">
+                    LinkedIn
+                </a>
+                <a class="flex h-9 px-4 items-center justify-center rounded-lg bg-primary text-white text-sm font-bold hover:bg-teal-700 transition-colors"
+                    href="mailto:lokeshraj0506@gmail.com">
+                    Email Me
+                </a>
+                <!-- Mobile hamburger -->
+                <button class="md:hidden flex items-center text-slate-600" id="mobile-toggle">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu md:hidden border-t border-slate-100" id="mobile-menu">
+            <div class="max-w-5xl mx-auto px-6 py-3 flex flex-col gap-2">
+                <a class="text-sm font-medium text-slate-600 py-2" href="#work">Work</a>
+                <a class="text-sm font-medium text-slate-600 py-2" href="#about">About</a>
+                <a class="text-sm font-medium text-slate-600 py-2" href="#stack">Stack</a>
+                <a class="text-sm font-medium text-slate-600 py-2" href="#contact">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-12 md:py-24">
+
+        <!-- Hero Section -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
+            <div class="lg:col-span-7 flex flex-col gap-6">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 text-primary text-xs font-bold w-fit uppercase tracking-wider">
+                    Product Manager + Builder
+                </div>
+                <h1 class="text-4xl md:text-6xl font-black leading-tight tracking-tight text-slate-900">
+                    Taking PM work <span class="text-primary">beyond PRDs</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl">
+                    Technical founder turned <b>AI-first SaaS Product Manager</b> who prototypes and ships.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a class="flex h-12 px-6 items-center justify-center rounded-xl bg-primary text-white font-bold transition-transform active:scale-95 hover:bg-teal-700"
+                        href="#work">
+                        View Work
+                    </a>
+                    <a class="flex h-12 px-6 items-center justify-center rounded-xl bg-slate-100 text-slate-900 font-bold hover:bg-slate-200 transition-transform active:scale-95"
+                        href="#explorations-anchor">
+                        View Explorations
+                    </a>
+                </div>
+            </div>
+            <div class="lg:col-span-5 relative">
+                <div class="aspect-square rounded-3xl overflow-hidden shadow-2xl border border-slate-200">
+                    <img src="hero_img.jpg" alt="Lokesh Raj" class="w-full h-full object-cover" />
+                </div>
+                <div
+                    class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4 max-w-[260px]">
+                    <div class="size-10 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center">
+                        <span class="material-symbols-outlined">bolt</span>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 font-medium">IIT Delhi · B.Tech M&C</p>
+                        <p class="text-sm font-bold text-slate-900">4.5 Years in Product</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="mb-24 py-16 px-8 rounded-3xl bg-slate-50 border border-slate-200/60" id="about">
+            <div class="max-w-3xl">
+                <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">person</span>
+                    About Me
+                </h2>
+                <div class="text-lg text-slate-600 leading-relaxed space-y-4">
+                    <p>
+                        Transitioned from a technical founder to AI-first SaaS Product Manager, building products and
+                        AI workflows while driving GTM across India and US markets for the past 4.5 years.
+                    </p>
+                    <p>
+                        I don't stop at writing PRDs. I prototype with code, build AI workflows, and ship end-to-end.
+                        From OCR-driven document ingestion at a fintech to vibe-coding an Instagram bot over a weekend,
+                        I operate across the full spectrum.
+                    </p>
+                    <p class="text-base text-slate-500 italic">
+                        B.Tech in Mathematics & Computing, Indian Institute of Technology, Delhi (2021)
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="mb-24" id="work">
+            <div class="flex flex-col gap-6 mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-900 mb-2 tracking-tight">Projects</h2>
+                    <p class="text-slate-500">Professional PM work and personal builds — shipped with code, AI, and
+                        hustle.</p>
+                </div>
+                <div class="flex flex-wrap gap-3">
+                    <button
+                        class="filter-chip inline-flex items-center gap-1 px-4 py-2 rounded-full border border-slate-300 text-sm font-semibold text-slate-600"
+                        data-filter="professional">
+                        <span class="chip-label">Professional Work</span>
+                        <span class="material-symbols-outlined chip-close">close</span>
+                    </button>
+                    <button
+                        class="filter-chip inline-flex items-center gap-1 px-4 py-2 rounded-full border border-slate-300 text-sm font-semibold text-slate-600"
+                        data-filter="exploration">
+                        <span class="chip-label">Explorations</span>
+                        <span class="material-symbols-outlined chip-close">close</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ============ ALL PROJECTS GRID ============ -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="projects-grid">
+
+                <!-- Inkle -->
+
+                <div class="project-card group flex flex-col bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl hover:border-primary/20 transition-all"
+                    data-category="professional">
+                    <div class="aspect-video overflow-hidden">
+                        <img src="inkle.png" alt="Inkle"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    </div>
+                    <div class="p-8 flex flex-col flex-1">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-slate-900">Inkle</h3>
+                            <span
+                                class="px-2 py-1 bg-teal-50 text-teal-700 text-[10px] font-bold uppercase rounded tracking-wider">Product
+                                Manager</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mb-3">Sep 2024 – Oct 2025 · Bangalore</p>
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                            US tax & accounting automation SaaS serving 500+ US companies. Drove GTM, AI accuracy, and
+                            automation across the accounting vertical.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="px-2 py-1 bg-slate-50 border border-slate-200 text-[10px] font-medium text-slate-600 rounded">n8n</span>
+                            <span
+                                class="px-2 py-1 bg-slate-50 border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Claude</span>
+                            <span
+                                class="px-2 py-1 bg-slate-50 border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Metabase</span>
+                            <span
+                                class="px-2 py-1 bg-slate-50 border border-slate-200 text-[10px] font-medium text-slate-600 rounded">OCR</span>
+                            <span
+                                class="px-2 py-1 bg-slate-50 border border-slate-200 text-[10px] font-medium text-slate-600 rounded">LLM-as-judge</span>
+                        </div>
+                        <button
+                            class="expand-toggle mt-auto pt-4 border-t border-slate-100 flex items-center justify-between w-full text-left cursor-pointer">
+                            <span class="text-xs font-bold text-primary">More details</span>
+                            <span class="material-symbols-outlined text-sm text-primary expand-icon">expand_more</span>
+                        </button>
+                        <div class="card-expand-content">
+                            <ul class="mt-4 space-y-3 text-xs text-slate-700 leading-relaxed">
+                                <li class="flex gap-2"><span class="text-primary mt-0.5">→</span> <span>Drove GTM
+                                        strategy and product roadmap, growing <b>clients 2.5x</b> and <strong>revenue 2x
+                                            to $500K+</strong> from accounting vertical</span></li>
+                                <li class="flex gap-2"><span class="text-primary mt-0.5">→</span> <span>Led 0→1 product
+                                        initiative for US sales tax compliance — acquired <strong>20+ clients</strong>
+                                        &amp; <strong>$50K+ annual revenue</strong> within 6 months</span></li>
+                                <li class="flex gap-2"><span class="text-primary mt-0.5">→</span> <span>Improved
+                                        <strong>AI categorization &amp; reconciliation accuracy to 90%</strong> by
+                                        validating against custom golden datasets</span></li>
+                                <li class="flex gap-2"><span class="text-primary mt-0.5">→</span> <span>Reduced
+                                        <strong>manual follow-ups by 70%</strong> by deploying OCR-driven document
+                                        ingestion, evaluated via <strong>LLM-as-judge</strong></span></li>
+                                <li class="flex gap-2"><span class="text-primary mt-0.5">→</span> <span>Built
+                                        <strong>n8n growth automations</strong> to track recently funded companies &amp;
+                                        personalize outreach to anonymous site visitors</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Brick & Bolt -->
+                <div class="project-card group flex flex-col bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl hover:border-primary/20 transition-all"
+                    data-category="professional">
+                    <div class="aspect-video overflow-hidden">
+                        <img src="brick_and_bolt.png" alt="Brick & Bolt"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    </div>
+                    <div class="p-8 flex flex-col flex-1">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-slate-900">Brick & Bolt</h3>
+                            <span
+                                class="px-2 py-1 bg-teal-50 text-teal-700 text-[10px] font-bold uppercase rounded tracking-wider">PM
+                                — Growth</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mb-3">Mar 2024 – Aug 2024 · Bangalore</p>
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                            Construction marketplace backed by $16M from Accel & Sequoia Surge. Led growth levers across
+                            conversions, pricing, and SEO.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="px-2 py-1 bg-slate-50 border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Amplitude</span>
+                            <span
+                                class="px-2 py-1 bg-slate-50 border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Metabase</span>
+                            <span
+                                class="px-2 py-1 bg-slate-50 border border-slate-200 text-[10px] font-medium text-slate-600 rounded">SEO</span>
+                            <span
+                                class="px-2 py-1 bg-slate-50 border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Data
+                                Simulation</span>
+                        </div>
+                        <button
+                            class="expand-toggle mt-auto pt-4 border-t border-slate-100 flex items-center justify-between w-full text-left cursor-pointer">
+                            <span class="text-xs font-bold text-primary">More details</span>
+                            <span class="material-symbols-outlined text-sm text-primary expand-icon">expand_more</span>
+                        </button>
+                        <div class="card-expand-content">
+                            <ul class="mt-4 space-y-3 text-xs text-slate-700 leading-relaxed">
+                                <li class="flex gap-2"><span class="text-primary mt-0.5">→</span> <span>Achieved
+                                        <strong>14% MoM increase in conversions</strong>, adding <strong>$1.1M in
+                                            GMV</strong>, by identifying and executing high-impact levers</span></li>
+                                <li class="flex gap-2"><span class="text-primary mt-0.5">→</span> <span>Spearheaded a
+                                        <strong>pricing model revamp</strong> that increased <strong>margins by
+                                            32.8%</strong>, aligning five CXO stakeholders &amp; their teams</span></li>
+                                <li class="flex gap-2"><span class="text-primary mt-0.5">→</span> <span>Reduced sales
+                                        meeting cancellations by <strong>11%</strong> through a lead prioritization
+                                        framework based on <strong>historical data simulation</strong></span></li>
+                                <li class="flex gap-2"><span class="text-primary mt-0.5">→</span> <span>Boosted monthly
+                                        website impressions by <strong>35%</strong> &amp; CTR by <strong>5%</strong> by
+                                        releasing <strong>4000+ keyword-optimised webpages</strong> &amp; blogs</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FloBiz | myBillBook -->
+                <div class="project-card group flex flex-col bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl hover:border-primary/20 transition-all"
+                    data-category="professional">
+                    <div class="aspect-video overflow-hidden">
+                        <img src="flobiz.png" alt="FloBiz myBillBook"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    </div>
+                    <div class="p-8 flex flex-col flex-1">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-slate-900">FloBiz · myBillBook</h3>
+                            <span
+                                class="px-2 py-1 bg-teal-50 text-teal-700 text-[10px] font-bold uppercase rounded tracking-wider">Product
+                                Manager</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mb-3">Jul 2022 – Jan 2024 · Bangalore</p>
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                            GST billing & accounting SaaS for 8M+ SMEs with 300K+ MAU. Led iOS growth, subscription
+                            optimization, and recurring invoicing.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="px-2 py-1 bg-slate-50 border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Amplitude</span>
+                            <span
+                                class="px-2 py-1 bg-slate-50 border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Metabase</span>
+                            <span
+                                class="px-2 py-1 bg-slate-50 border border-slate-200 text-[10px] font-medium text-slate-600 rounded">iOS</span>
+                            <span
+                                class="px-2 py-1 bg-slate-50 border border-slate-200 text-[10px] font-medium text-slate-600 rounded">App
+                                Store Connect</span>
+                        </div>
+                        <button
+                            class="expand-toggle mt-auto pt-4 border-t border-slate-100 flex items-center justify-between w-full text-left cursor-pointer">
+                            <span class="text-xs font-bold text-primary">More details</span>
+                            <span class="material-symbols-outlined text-sm text-primary expand-icon">expand_more</span>
+                        </button>
+                        <div class="card-expand-content">
+                            <ul class="mt-4 space-y-3 text-xs text-slate-700 leading-relaxed">
+                                <li class="flex gap-2"><span class="text-primary mt-0.5">→</span> <span>Led iOS growth
+                                        roadmap end-to-end — elevated <strong>iOS subscription purchase by 67%</strong>
+                                        and boosted <strong>iOS ARPU by 31%</strong></span></li>
+                                <li class="flex gap-2"><span class="text-primary mt-0.5">→</span> <span>Organically
+                                        improved <strong>App Store rating from 3.7 to 4.5</strong> with <strong>10x
+                                            increase in reviews</strong> and <strong>19% increase in iOS
+                                            MAU</strong></span></li>
+                                <li class="flex gap-2"><span class="text-primary mt-0.5">→</span> <span>Delivered
+                                        recurring invoicing with <strong>10K+ monthly automations</strong>, increasing
+                                        conversion for service-based SMEs by <strong>18%</strong></span></li>
+                                <li class="flex gap-2"><span class="text-primary mt-0.5">→</span> <span>Awarded
+                                        <strong>two promotions in 18 months</strong> and quarterly awards for
+                                        exceptional performance in Q4 2022 &amp; Q2 2023</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- 1. Cursor for Business Teams -->
+                <div class="project-card group flex flex-col bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden hover:bg-white hover:shadow-xl transition-all"
+                    data-category="exploration">
+                    <div class="explore-img-wrap aspect-video" onclick="openImgModal(this)">
+                        <img src="hippo.png" alt="Cursor for Business Teams" class="w-full h-full object-cover" />
+                        <span class="explore-img-expand"><span
+                                class="material-symbols-outlined text-lg">open_in_full</span></span>
+                    </div>
+                    <div class="p-8 flex flex-col h-full">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-slate-900">Cursor for Business Teams</h3>
+                            <span
+                                class="px-2 py-1 bg-blue-50 text-blue-600 text-[10px] font-bold uppercase rounded tracking-wider">Context
+                                Layer</span>
+                        </div>
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                            RAG-based context layer over Notion & Google Docs to improve LLM accuracy and reduce
+                            hallucinations. Grounds AI responses in your own documents.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Claude</span>
+                            <span
+                                class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Supabase</span>
+                            <span
+                                class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Notion
+                                API</span>
+                            <span
+                                class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Google
+                                Docs API</span>
+                            <span
+                                class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Cursor</span>
+                        </div>
+                        <button
+                            class="expand-toggle mt-auto pt-4 border-t border-slate-100 flex items-center justify-between w-full text-left cursor-pointer">
+                            <span class="text-xs font-bold text-primary">More details</span>
+                            <span class="material-symbols-outlined text-sm text-primary expand-icon">expand_more</span>
+                        </button>
+                        <div class="card-expand-content">
+                            <ul class="mt-4 space-y-3 text-xs text-slate-700 leading-relaxed">
+                                <li class="flex gap-2"><span class="text-primary mt-0.5">→</span> <span>Implemented
+                                        <strong>Retrieval-Augmented Generation</strong> pipeline that indexes personal
+                                        Notion workspaces &amp; Google Docs</span></li>
+                                <li class="flex gap-2"><span class="text-primary mt-0.5">→</span> <span>Grounds LLM
+                                        responses in user's own context — significantly <strong>reduces
+                                            hallucinations</strong> and improves accuracy for domain-specific
+                                        queries</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. AI Running Coach -->
+                <div class="project-card group flex flex-col bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden hover:bg-white hover:shadow-xl transition-all"
+                    data-category="exploration">
+                    <div class="explore-img-wrap aspect-video" onclick="openImgModal(this)">
+                        <img src="running_coach.jpeg" alt="AI Running Coach" class="w-full h-full object-cover" />
+                        <span class="explore-img-expand"><span
+                                class="material-symbols-outlined text-lg">open_in_full</span></span>
+                    </div>
+                    <div class="p-8 flex flex-col h-full">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-slate-900">AI Running Coach</h3>
+                            <span
+                                class="px-2 py-1 bg-green-50 text-green-600 text-[10px] font-bold uppercase rounded tracking-wider">Vertical
+                                agent</span>
+                        </div>
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                            Personalized training plans for 10+ runners, grounded in expert coaching principles and
+                            wearable data from Garmin/Strava.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Claude</span>
+                            <span
+                                class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-medium text-slate-600 rounded">NotebookLM</span>
+                            <span
+                                class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Wearable
+                                Data</span>
+                            <span
+                                class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Google
+                                Stitch</span>
+                        </div>
+                        <button
+                            class="expand-toggle mt-auto pt-4 border-t border-slate-100 flex items-center justify-between w-full text-left cursor-pointer">
+                            <span class="text-xs font-bold text-primary">More details</span>
+                            <span class="material-symbols-outlined text-sm text-primary expand-icon">expand_more</span>
+                        </button>
+                        <div class="card-expand-content">
+                            <ul class="mt-4 space-y-3 text-xs text-slate-700 leading-relaxed">
+                                <li class="flex gap-2"><span class="text-primary mt-0.5">→</span> <span>Built a
+                                        personalized AI coach that analyzes <strong>wearable data</strong> (heart rate,
+                                        pace, cadence) and generates training plans grounded in expert coaching
+                                        frameworks</span></li>
+                                <li class="flex gap-2"><span class="text-primary mt-0.5">→</span> <span>Served
+                                        <strong>10+ runners</strong> with personalized weekly plans and performance
+                                        feedback</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Mement -->
+                <div class="project-card group flex flex-col bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden hover:bg-white hover:shadow-xl transition-all"
+                    data-category="exploration">
+                    <div class="explore-img-wrap aspect-video" onclick="openImgModal(this)">
+                        <img src="mement.png" alt="Mement" class="w-full h-full object-cover" />
+                        <span class="explore-img-expand"><span
+                                class="material-symbols-outlined text-lg">open_in_full</span></span>
+                    </div>
+                    <div class="p-8 flex flex-col h-full">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-slate-900">Mement</h3>
+                            <span
+                                class="px-2 py-1 bg-pink-50 text-pink-600 text-[10px] font-bold uppercase rounded tracking-wider">Founder</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mb-3">Jul 2020 – Jun 2022 · Delhi & Bangalore</p>
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                            Started as a 4.8★ meme-based social media app and content marketing agency. Pivoted to a
+                            Meme Trends Navigator tool, powered with traditional OCR and prediction models. Led a
+                            10-member team.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-medium text-slate-600 rounded">React
+                                Native</span>
+                            <span
+                                class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Framer</span>
+                            <span
+                                class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Social
+                                APIs</span>
+                        </div>
+                        <button
+                            class="expand-toggle mt-auto pt-4 border-t border-slate-100 flex items-center justify-between w-full text-left cursor-pointer">
+                            <span class="text-xs font-bold text-primary">More details</span>
+                            <span class="material-symbols-outlined text-sm text-primary expand-icon">expand_more</span>
+                        </button>
+                        <div class="card-expand-content">
+                            <ul class="mt-4 space-y-3 text-xs text-slate-700 leading-relaxed">
+                                <li class="flex gap-2"><span class="text-primary mt-0.5">→</span> <span>Led a
+                                        <strong>10-member team</strong> to record <strong>$1K+ MRR</strong> by achieving
+                                        75K+ impressions for EdTech courses and Marketing</span></li>
+                                <li class="flex gap-2"><span class="text-primary mt-0.5">→</span> <span>Conceptualized a
+                                        5-week growth campaign, organically onboarding <strong>3K+ users</strong> with
+                                        <strong>20K+ user-generated content</strong></span></li>
+                                <li class="flex gap-2"><span class="text-primary mt-0.5">→</span> <span>Shortlisted for
+                                        mentoring by <strong>Kunal Bahl</strong> at Titan Capital &amp; partnered with
+                                        national festivals as <strong>Official Meme Partner</strong></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Medical Prescription Tool -->
+                <div class="project-card group flex flex-col bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden hover:bg-white hover:shadow-xl transition-all"
+                    data-category="exploration">
+                    <div class="explore-img-wrap aspect-video" onclick="openImgModal(this)">
+                        <img src="ixicare.jpeg" alt="Medical Prescription Tool" class="w-full h-full object-cover" />
+                        <span class="explore-img-expand"><span
+                                class="material-symbols-outlined text-lg">open_in_full</span></span>
+                    </div>
+                    <div class="p-8 flex flex-col h-full">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-slate-900">Medical Prescription Tool</h3>
+                            <span
+                                class="px-2 py-1 bg-purple-50 text-purple-600 text-[10px] font-bold uppercase rounded tracking-wider">Pre-GPT
+                                Voice Models</span>
+                        </div>
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                            Leveraged early speech models to build a transcription tool for medical prescriptions. Sold
+                            to 25+ doctors as a working product.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Speech
+                                Models</span>
+                            <span
+                                class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Python</span>
+                            <span
+                                class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-medium text-slate-600 rounded">NLP</span>
+                        </div>
+                        <button
+                            class="expand-toggle mt-auto pt-4 border-t border-slate-100 flex items-center justify-between w-full text-left cursor-pointer">
+                            <span class="text-xs font-bold text-primary">More details</span>
+                            <span class="material-symbols-outlined text-sm text-primary expand-icon">expand_more</span>
+                        </button>
+                        <div class="card-expand-content">
+                            <ul class="mt-4 space-y-3 text-xs text-slate-700 leading-relaxed">
+                                <li class="flex gap-2"><span class="text-primary mt-0.5">→</span> <span>Built a
+                                        <strong>pre-GPT transcription tool</strong> that converted spoken medical
+                                        prescriptions into structured digital records</span></li>
+                                <li class="flex gap-2"><span class="text-primary mt-0.5">→</span> <span><strong>Sold to
+                                            25+ doctors</strong> — early validation of AI-assisted healthcare workflows
+                                        before the LLM wave</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Expense Tracker -->
+                <div class="project-card group flex flex-col bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden hover:bg-white hover:shadow-xl transition-all"
+                    data-category="exploration">
+                    <div class="explore-img-wrap aspect-video" onclick="openImgModal(this)">
+                        <img src="expense_management.png" alt="Expense Tracker" class="w-full h-full object-cover" />
+                        <span class="explore-img-expand"><span
+                                class="material-symbols-outlined text-lg">open_in_full</span></span>
+                    </div>
+                    <div class="p-8 flex flex-col h-full">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-slate-900">Expense Tracker via SMS & Email</h3>
+                            <span
+                                class="px-2 py-1 bg-amber-50 text-amber-600 text-[10px] font-bold uppercase rounded tracking-wider">Automation</span>
+                        </div>
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                            n8n workflow that tracks expenses across UPI and credit cards by parsing SMS and email
+                            notifications, then generates consolidated reports in Excel.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-medium text-slate-600 rounded">n8n</span>
+                            <span
+                                class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Gmail
+                                API</span>
+                            <span
+                                class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Google
+                                Sheets</span>
+                            <span
+                                class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Regex</span>
+                        </div>
+                        <button
+                            class="expand-toggle mt-auto pt-4 border-t border-slate-100 flex items-center justify-between w-full text-left cursor-pointer">
+                            <span class="text-xs font-bold text-primary">More details</span>
+                            <span class="material-symbols-outlined text-sm text-primary expand-icon">expand_more</span>
+                        </button>
+                        <div class="card-expand-content">
+                            <ul class="mt-4 space-y-3 text-xs text-slate-700 leading-relaxed">
+                                <li class="flex gap-2"><span class="text-primary mt-0.5">→</span> <span>Automated
+                                        expense tracking by <strong>parsing UPI and credit card transaction SMS +
+                                            emails</strong> using n8n workflows</span></li>
+                                <li class="flex gap-2"><span class="text-primary mt-0.5">→</span> <span>Auto-categorizes
+                                        and generates <strong>consolidated Excel reports</strong> — eliminates manual
+                                        expense logging</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Reels Board -->
+                <div class="project-card group flex flex-col bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden hover:bg-white hover:shadow-xl transition-all"
+                    data-category="exploration">
+                    <div class="explore-img-wrap aspect-video" onclick="openImgModal(this)">
+                        <img src="reelsboard.png" alt="Reels Board" class="w-full h-full object-cover" />
+                        <span class="explore-img-expand"><span
+                                class="material-symbols-outlined text-lg">open_in_full</span></span>
+                    </div>
+                    <div class="p-8 flex flex-col h-full">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-slate-900">Reels Board</h3>
+                            <span
+                                class="px-2 py-1 bg-rose-50 text-rose-600 text-[10px] font-bold uppercase rounded tracking-wider">Vibe
+                                Coded</span>
+                        </div>
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                            A clipboard for your favorite Instagram reels. Send any reel to the IG bot via DM — it
+                            extracts audio, captions, and on-screen text, auto-tags themes, and lets you search or ask
+                            questions across all saved reels.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Claude</span>
+                            <span
+                                class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Cursor</span>
+                            <span
+                                class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Supabase</span>
+                            <span
+                                class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Instagram
+                                API</span>
+                            <span
+                                class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Python</span>
+                        </div>
+                        <button
+                            class="expand-toggle mt-auto pt-4 border-t border-slate-100 flex items-center justify-between w-full text-left cursor-pointer">
+                            <span class="text-xs font-bold text-primary">More details</span>
+                            <span class="material-symbols-outlined text-sm text-primary expand-icon">expand_more</span>
+                        </button>
+                        <div class="card-expand-content">
+                            <ul class="mt-4 space-y-3 text-xs text-slate-700 leading-relaxed">
+                                <li class="flex gap-2"><span class="text-primary mt-0.5">→</span> <span>Vibe coded in 2
+                                        days with a friend. Idea: travel reels, recipes, outfit inspo — all disappear
+                                        into chat. Built a way to <strong>interact with saved reels</strong> in a
+                                        cleaner way.</span></li>
+                                <li class="flex gap-2"><span class="text-primary mt-0.5">→</span> <span>IG bot pulls
+                                        context from the reel, summarizes the gist, and <strong>auto-tags</strong>
+                                        (travel, cooking, etc.). Browse and filter everything on the web app.</span>
+                                </li>
+                                <li class="flex gap-2"><span class="text-primary mt-0.5">→</span> <span>Users can
+                                        <strong>search across all saved reels</strong> or ask general questions about
+                                        their reel library.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Spotify Running Playlist -->
+                <div class="project-card group flex flex-col bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden hover:bg-white hover:shadow-xl transition-all"
+                    data-category="exploration">
+                    <div class="explore-img-wrap aspect-video" onclick="openImgModal(this)">
+                        <img src="runlist.png" alt="Spotify Running Playlist" class="w-full h-full object-cover" />
+                        <span class="explore-img-expand"><span
+                                class="material-symbols-outlined text-lg">open_in_full</span></span>
+                    </div>
+                    <div class="p-8 flex flex-col h-full">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-slate-900">Spotify Running Playlist</h3>
+                            <span
+                                class="px-2 py-1 bg-green-50 text-green-600 text-[10px] font-bold uppercase rounded tracking-wider">Vibe
+                                Coded</span>
+                        </div>
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                            Fetches your top Spotify artists and tracks, then generates a BPM-matched running playlist
+                            to help maintain target cadence during runs.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Spotify
+                                API</span>
+                            <span
+                                class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Cursor</span>
+                            <span
+                                class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-medium text-slate-600 rounded">Python</span>
+                        </div>
+                        <button
+                            class="expand-toggle mt-auto pt-4 border-t border-slate-100 flex items-center justify-between w-full text-left cursor-pointer">
+                            <span class="text-xs font-bold text-primary">More details</span>
+                            <span class="material-symbols-outlined text-sm text-primary expand-icon">expand_more</span>
+                        </button>
+                        <div class="card-expand-content">
+                            <ul class="mt-4 space-y-3 text-xs text-slate-700 leading-relaxed">
+                                <li class="flex gap-2"><span class="text-primary mt-0.5">→</span> <span>Connects
+                                        to Spotify API to fetch user's <strong>top artists and tracks</strong>, analyzes
+                                        BPM
+                                        of each track</span></li>
+                                <li class="flex gap-2"><span class="text-primary mt-0.5">→</span> <span>Generates a
+                                        <strong>running playlist matched to target cadence</strong> (e.g., 170-180 BPM)
+                                        — helps maintain consistent pace during training</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Technical Stack Grid -->
+        <section class="mb-24 py-16 px-8 rounded-3xl bg-slate-50 border border-slate-200/60" id="stack">
+            <h2 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-12 text-center">Technical Arsenal
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
+                <div class="text-center">
+                    <div
+                        class="size-12 mx-auto mb-4 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center">
+                        <span class="material-symbols-outlined">smart_toy</span>
+                    </div>
+                    <h4 class="text-slate-900 font-bold mb-2">AI & LLMs</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed">Claude, NotebookLM, Google Stitch, LLM-as-judge,
+                        RAG, Prompt Engineering</p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="size-12 mx-auto mb-4 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center">
+                        <span class="material-symbols-outlined">code</span>
+                    </div>
+                    <h4 class="text-slate-900 font-bold mb-2">Dev & Vibe Coding</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed">Cursor, Lovable, Supabase, n8n, Antigravity,
+                        Python, HTML/CSS/JS</p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="size-12 mx-auto mb-4 rounded-xl bg-violet-100 text-violet-700 flex items-center justify-center">
+                        <span class="material-symbols-outlined">monitoring</span>
+                    </div>
+                    <h4 class="text-slate-900 font-bold mb-2">Product & Analytics</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed">Amplitude, Metabase, PostHog, Mixpanel, Framer,
+                        A/B Testing</p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="size-12 mx-auto mb-4 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center">
+                        <span class="material-symbols-outlined">integration_instructions</span>
+                    </div>
+                    <h4 class="text-slate-900 font-bold mb-2">APIs & Integrations</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed">Composio, Notion, Google Docs, Gmail,
+                        Google Sheets, Stripe, Spotify, Instagram</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA / Contact -->
+        <section class="bg-primary rounded-3xl p-12 text-center text-white relative overflow-hidden" id="contact">
+            <div class="relative z-10">
+                <h2 class="text-3xl md:text-5xl font-black mb-6">Let's build something together</h2>
+                <p class="text-lg mb-10 max-w-xl mx-auto text-teal-50">
+                    Looking for a PM who can also prototype, code, and ship? I'm open to AI Product, Growth PM, and
+                    Technical PM roles.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a class="bg-white text-primary px-8 py-4 rounded-xl font-bold shadow-lg hover:bg-teal-50 transition-colors"
+                        href="mailto:lokeshraj0506@gmail.com">
+                        Send an Email
+                    </a>
+                    <a class="bg-primary border-2 border-white/20 px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition-colors"
+                        href="https://www.linkedin.com/in/rajlokesh/" target="_blank">
+                        LinkedIn Profile
+                    </a>
+                </div>
+            </div>
+            <!-- Decorative circles -->
+            <div class="absolute -top-24 -right-24 size-64 bg-white/10 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-24 -left-24 size-64 bg-black/10 rounded-full blur-3xl"></div>
+        </section>
+
+        <footer class="mt-24 pb-12 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-slate-400 text-sm">© 2025 Lokesh Raj. Built with AI + Code.</p>
+            <div class="flex items-center gap-6">
+                <a class="text-slate-400 hover:text-primary transition-colors" href="mailto:lokeshraj0506@gmail.com">
+                    <span class="material-symbols-outlined">alternate_email</span>
+                </a>
+                <a class="text-slate-400 hover:text-primary transition-colors"
+                    href="https://www.linkedin.com/in/rajlokesh/" target="_blank">
+                    <span class="material-symbols-outlined">link</span>
+                </a>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // Filter chips
+        const chips = document.querySelectorAll('.filter-chip');
+        const allCards = document.querySelectorAll('.project-card');
+        let activeFilter = null;
+
+        function applyFilter(filter) {
+            activeFilter = filter;
+
+            // Update chip states
+            chips.forEach(c => {
+                if (filter && c.dataset.filter === filter) {
+                    c.classList.add('active');
+                } else {
+                    c.classList.remove('active');
+                }
+            });
+
+            // Show/hide cards
+            allCards.forEach(card => {
+                if (!filter || card.dataset.category === filter) {
+                    card.classList.remove('hidden-card');
+                } else {
+                    card.classList.add('hidden-card');
+                }
+            });
+        }
+
+        chips.forEach(chip => {
+            chip.addEventListener('click', (e) => {
+                const filter = chip.dataset.filter;
+                // If clicking the close icon or clicking an already-active chip, clear filter
+                if (chip.classList.contains('active')) {
+                    applyFilter(null);
+                } else {
+                    applyFilter(filter);
+                }
+            });
+        });
+
+        // Expand/collapse cards
+        document.querySelectorAll('.expand-toggle').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('.expand-icon');
+
+                content.classList.toggle('open');
+                icon.classList.toggle('rotated');
+
+                // Update button text
+                const textSpan = btn.querySelector('span:first-child');
+                if (content.classList.contains('open')) {
+                    textSpan.textContent = 'Less details';
+                } else {
+                    textSpan.textContent = 'More details';
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // "View Explorations" button activates the exploration filter and scrolls
+        document.querySelector('a[href="#explorations-anchor"]').addEventListener('click', function (e) {
+            e.preventDefault();
+            applyFilter('exploration');
+            document.getElementById('work').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    </script>
+
+    <!-- Image Modal -->
+    <div class="img-modal-overlay" id="imgModal" onclick="closeImgModal(event)">
+        <button class="img-modal-close" onclick="closeImgModal(event)">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <img id="imgModalSrc" src="" alt="Full view" />
+    </div>
+
+    <script>
+        // Image modal
+        const imgModal = document.getElementById('imgModal');
+        const imgModalSrc = document.getElementById('imgModalSrc');
+
+        function openImgModal(wrapper) {
+            const img = wrapper.querySelector('img');
+            imgModalSrc.src = img.src;
+            imgModalSrc.alt = img.alt;
+            imgModal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImgModal(e) {
+            // Only close if clicking overlay or close button, not the image itself
+            if (e.target === imgModal || e.target.closest('.img-modal-close')) {
+                imgModal.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && imgModal.classList.contains('open')) {
+                imgModal.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+
+</body>
+
+</html>
