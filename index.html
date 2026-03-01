@@ -231,6 +231,24 @@
         .mobile-menu.open {
             max-height: 200px;
         }
+
+        /* Fix tag badge alignment on mobile */
+        .project-card .flex.justify-between>span {
+            flex-shrink: 0;
+            margin-left: 0.5rem;
+            text-align: right;
+        }
+
+        @media (max-width: 767px) {
+            .project-card .flex.justify-between {
+                flex-wrap: wrap;
+            }
+
+            .project-card .flex.justify-between>span {
+                margin-left: 0;
+                margin-top: 0.25rem;
+            }
+        }
     </style>
 </head>
 
@@ -611,7 +629,7 @@
                     </div>
                     <div class="p-8 flex flex-col flex-1">
                         <div class="flex justify-between items-start mb-3">
-                            <h3 class="text-xl font-bold text-slate-900">Personalized Reachout to Website Visitors</h3>
+                            <h3 class="text-xl font-bold text-slate-900">Personalizing Outbound</h3>
                             <span
                                 class="px-2 py-1 bg-amber-50 text-amber-600 text-[10px] font-bold uppercase rounded tracking-wider">Automation</span>
                         </div>
@@ -663,7 +681,7 @@
                     </div>
                     <div class="p-8 flex flex-col flex-1">
                         <div class="flex justify-between items-start mb-3">
-                            <h3 class="text-xl font-bold text-slate-900">Finding Leads from Recently Funded Companies
+                            <h3 class="text-xl font-bold text-slate-900">Finding New Leads
                             </h3>
                             <span
                                 class="px-2 py-1 bg-amber-50 text-amber-600 text-[10px] font-bold uppercase rounded tracking-wider">Automation</span>
@@ -1057,9 +1075,9 @@
         <!-- CTA / Contact -->
         <section class="bg-primary rounded-3xl p-12 text-center text-white relative overflow-hidden" id="contact">
             <div class="relative z-10">
-                <h2 class="text-3xl md:text-5xl font-black mb-6">Let's build something together</h2>
+                <h2 class="text-3xl md:text-5xl font-black mb-6">Let's build together</h2>
                 <p class="text-lg mb-10 max-w-xl mx-auto text-teal-50">
-                    Looking for a PM who can also prototype, code, and ship? I'm open to AI Product, Growth PM, and
+                    Looking for a PM who can also prototype and ship? I'm open to AI, Growth, and
                     Technical PM roles.
                 </p>
                 <div class="flex flex-wrap justify-center gap-4">
